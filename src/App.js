@@ -10,26 +10,29 @@ function App() {
     console.log(contacts);
     console.log(contactsData);
 
+
     const randomContact = () => {
         const newContact =
             contactsData[Math.floor(Math.random() * contactsData.length)]
 
         if (!contacts.includes(newContact)) {
             setContacts([newContact, ...contacts])
+
         }
     }
 
     const sortByName = () => {
-        contactsData.sort((a, b) => {
-            if (a.name > b.name) {
-                return 1;
-            }
-            if (a.name < b.name) {
-                return -1;
-            } return 0
-        
-        })
-        
+        const sortName =
+            [...contactsData].sort((a, b) => {
+                if (a.name > b.name) {
+                    return 1;
+                }
+                if (a.name < b.name) {
+                    return -1;
+                } return 0
+
+            })
+        setContacts(sortName)
     }
 
     return (
